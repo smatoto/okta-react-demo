@@ -20,6 +20,11 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.eslintcache
+
+# Firebase
+.firebase
+
 
 # build scripts
 deploy.sh

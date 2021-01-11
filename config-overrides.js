@@ -22,11 +22,7 @@ const webpack = require('webpack');
 const env = {};
 
 // List of environment variables made available to the app
-[
-  'ISSUER',
-  'CLIENT_ID',
-  'OKTA_TESTING_DISABLEHTTPSCHECK',
-].forEach((key) => {
+['ISSUER', 'CLIENT_ID', 'OKTA_TESTING_DISABLEHTTPSCHECK', 'REDIRECT_URI', 'IDP_GOOGLE', 'IDP_OIDC'].forEach((key) => {
   if (!process.env[key]) {
     throw new Error(`Environment variable ${key} must be set. See README.md`);
   }

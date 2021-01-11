@@ -18,26 +18,28 @@ import config from './config';
 
 const Login = () => {
   const { oktaAuth } = useOktaAuth();
-
   useEffect(() => {
     const { issuer, clientId, redirectUri, scopes } = config.oidc;
-    const { google } = config.idp;
-    console.log(issuer.split('/oauth2')[0]);
+    const { idp_google, idp_oidc } = config.idp;
+    const baseUrl = issuer.split('/oauth2')[0];
     const widget = new OktaSignIn({
-      baseUrl: 'https://dev-399191.okta.com',
+      baseUrl,
       clientId,
       redirectUri,
       logo: '/react.svg',
       i18n: {
         en: {
-          'primaryauth.title': 'Okta Demo - Custom Login',
+          'primaryauth.title': 'Okta - Custom Login',
         },
       },
       authParams: {
         issuer,
         scopes,
       },
-      idps: [{ type: 'Google', id: google }],
+      idps: [
+        { type: 'Google', id: idp_google },
+        { id: idp_oidc, text: 'Sign in with Kollab' },
+      ],
     });
 
     widget.renderEl(

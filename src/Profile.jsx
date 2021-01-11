@@ -13,10 +13,12 @@
 import React, { useState, useEffect } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 import { Header, Icon, Table } from 'semantic-ui-react';
+import config from './config';
 
 const Profile = () => {
   const { authState, oktaAuth } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
+  const { oidc, idp } = config;
 
   useEffect(() => {
     if (!authState.isAuthenticated) {

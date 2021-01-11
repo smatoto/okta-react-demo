@@ -1,0 +1,26 @@
+name: Firebase Continuous Deployment
+
+on:
+  push:
+    branches: [staging]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with:
+          node-version: 12
+      - run: npm ci
+      - run: npm run build
+      - uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          ISSUER: ${{ secrets.ISSUER }}
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          REDIRECT_URI: ${{ secrets.REDIRECT_URI }}
+          IDP_GOOGLE: ${{ secrets.IDP_GOOGLE }}
+          IDP_OIDC: ${{ secrets.IDP_OIDC }}
