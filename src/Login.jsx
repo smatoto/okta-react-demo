@@ -21,33 +21,23 @@ const Login = () => {
 
   useEffect(() => {
     const { issuer, clientId, redirectUri, scopes } = config.oidc;
+    const { google } = config.idp;
+    console.log(issuer.split('/oauth2')[0]);
     const widget = new OktaSignIn({
-      /**
-       * Note: when using the Sign-In Widget for an OIDC flow, it still
-       * needs to be configured with the base URL for your Okta Org. Here
-       * we derive it from the given issuer for convenience.
-       */
-      baseUrl: issuer.split('/oauth2')[0],
+      baseUrl: 'https://dev-399191.okta.com',
       clientId,
       redirectUri,
       logo: '/react.svg',
       i18n: {
         en: {
-          'primaryauth.title': 'Kollab Preview - React Demo',
+          'primaryauth.title': 'Okta Demo - Custom Login',
         },
       },
       authParams: {
-        // To avoid redirect do not set "pkce" or "display" here. OKTA-335945
         issuer,
         scopes,
       },
-      idps: [
-        // { type: 'Facebook', id: '0oaa4trovKc70WfIt4x6' },
-        // { type: 'Google', id: '0oa2o7broAlMF8zpi4x6' },
-        { type: 'Facebook', id: '0oavcksh5rEkPcYzh0h7' },
-        { type: 'Sam2', text: 'Sign in with Kollab SAML', id: '0oasip96rkIqwRCYF0h7' },
-        { type: 'OIDC', text: 'Sign in with Kollab OIDC', id: '0oavcgz3murfAOSqa0h7' },
-      ],
+      idps: [{ type: 'Google', id: google }],
     });
 
     widget.renderEl(

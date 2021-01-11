@@ -1,6 +1,6 @@
 # Okta React Preview Demo
 
-### This example is based on [okta/samples-js-react](https://github.com/okta/samples-js-react/tree/master/custom-login)
+_This example is based on [okta/samples-js-react](https://github.com/okta/samples-js-react/tree/master/custom-login)_
 
 This example shows you how to use the [Okta React Library][] and [React Router](https://github.com/ReactTraining/react-router) to login a user to a React application. The login is achieved with the [Okta Sign In Widget][], which gives you more control to customize the login experience within your app.
 
@@ -28,7 +28,7 @@ Then install dependencies:
 npm install
 ```
 
-Now you need to gather the following information from the Okta Developer Console:
+Now you need to gather the following information from the Okta Developer Console:cl
 
 - **Client Id** - The client ID of the SPA application that you created earlier. This can be found on the "General" tab of an application, or the list of applications. This identifies the application that tokens will be minted for.
 - **Issuer** - This is the URL of the authorization server that will perform authentication. All Developer Accounts have a "default" authorization server. The issuer is a combination of your Org URL (found in the upper right of the console home page) and `/oauth2/default`. For example, `https://dev-1234.oktapreview.com/oauth2/default`.

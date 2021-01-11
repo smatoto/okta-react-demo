@@ -41,16 +41,12 @@ const Profile = () => {
     <div>
       <div>
         <Header as="h1">
-          <Icon name="drivers license outline" />
-          {' '}
-          Kollab Preview User Profile (ID Token Claims)
-          {' '}
+          <Icon name="drivers license outline" /> Okta User Profile (ID Token Claims){' '}
         </Header>
         <p>
           Below is the information from your ID token which was obtained during the &nbsp;
-          <a href="https://developer.okta.com/docs/guides/implement-auth-code-pkce">PKCE Flow</a>
-          {' '}
-          and is now stored in local storage.
+          <a href="https://developer.okta.com/docs/guides/implement-auth-code-pkce">PKCE Flow</a> and is now stored in
+          local storage.
         </p>
         <Table>
           <thead>

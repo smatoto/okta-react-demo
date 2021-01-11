@@ -27,7 +27,7 @@ const Navbar = () => {
       <Menu fixed="top" inverted>
         <Container>
           <Menu.Item header>
-            <Link to="/">Kollab Preview - React Demo</Link>
+            <Link to="/">Okta - React Demo</Link>
           </Menu.Item>
           {authState.isAuthenticated && (
             <Menu.Item id="profile-button">
