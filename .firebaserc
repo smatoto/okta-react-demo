@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "okta-preview-demo"
+    "default": "gapps-dev-okta-demo",
+    "dev": "gapps-dev-okta-demo"
   }
 }
