@@ -19,3 +19,8 @@ jobs:
           args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          ISSUER: ${{ secrets.ISSUER }}
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          REDIRECT_URI: ${{ secrets.REDIRECT_URI }}
+          IDP_GOOGLE: ${{ secrets.IDP_GOOGLE }}
+          IDP_OIDC: ${{ secrets.IDP_OIDC }}
