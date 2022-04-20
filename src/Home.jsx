@@ -42,7 +42,7 @@ const Home = () => {
   return (
     <div>
       <div>
-        <Header as="h1">PKCE Flow w/ Identity Providers</Header>
+        <Header as="h1">PKCE Flow with Identity Providers</Header>
 
         {authState.isAuthenticated && !userInfo && <div>Loading user information...</div>}
 
@@ -54,8 +54,8 @@ const Home = () => {
             </p>
             <p>
               You have successfully authenticated against your Okta org, and have been redirected back to this
-              application. You now have an ID token and access token in local storage. Visit the{' '}
-              <a href="/profile">My Profile</a> page to take a look inside the ID token.
+              application. You now have an ID token and access token in local storage. Click
+              <strong>My Profile</strong> above to access your profile page and take a look inside the ID token.
             </p>
           </div>
         )}

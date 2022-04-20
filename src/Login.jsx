@@ -27,6 +27,7 @@ const Login = () => {
       clientId,
       redirectUri,
       logo: '/react.svg',
+      language: 'en',
       i18n: {
         en: {
           'primaryauth.title': 'Okta - Custom Login',
@@ -38,7 +39,7 @@ const Login = () => {
       },
       idps: [
         { type: 'Google', id: idp_google },
-        { id: idp_oidc, text: 'Sign in with Kollab' },
+        // { id: idp_oidc, text: 'Sign in with Kollab' },
       ],
     });
 
@@ -47,10 +48,15 @@ const Login = () => {
       ({ tokens }) => {
         oktaAuth.handleLoginRedirect(tokens);
       },
-      (err) => {
+      err => {
         throw err;
       },
     );
+    // Send OTP automatically
+    widget.on('afterRender', function (context) {
+      var smsGroup = document.getElementsByClassName('sms-request-button');
+      if (smsGroup.length) smsGroup[0].click();
+    });
 
     return () => widget.remove();
   }, [oktaAuth]);
